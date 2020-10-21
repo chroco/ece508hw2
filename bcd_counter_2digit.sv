@@ -15,24 +15,58 @@
 //
 // This module contains starter code.  You should complete the code according to the specification in
 // the homework #2 write-up
-//
+
 module bcd_counter_2digit
 (
-	input	logic			clk,			// input clock
-	input	logic			reset, 			// global reset (asserted high to reset)
-	input	logic			inc,			// asserted high for 1 cycle to increment the counter
-	input	logic			dec,			// asserted high for 1 cycle to decrement the counter
-											// counter cannot be decremented below 00
-	input	logic			clr,			// asserted high for 1 cycle to clear the counter.
-											// This is different than the reset signal which is
-											// assumed to be global to the entire circuit
-	output	logic	[3:0]	bcd1,			// most significant digit of BCD counter
-	output	logic	[3:0]	bcd0			// least significant digit of BCD counter
+	input	logic         clk,    // input clock
+	input	logic         reset,  // global reset (asserted high to reset)
+	input	logic         inc,    // asserted high for 1 cycle to increment the counter
+	input	logic         dec,    // asserted high for 1 cycle to decrement the counter
+                              // counter cannot be decremented below 00
+	input	logic		     	clr,    // asserted high for 1 cycle to clear the counter.
+                              // This is different than the reset signal which is
+                              // assumed to be global to the entire circuit
+	output logic	[3:0]	bcd1,   // most significant digit of BCD counter
+	output logic	[3:0]	bcd0    // least significant digit of BCD counter
 );
 
-// ADD YOUR CODE HERE
+always @(posedge clk_100Hz or posedge reset) begin: counter
+ /* 
+  if (inc && !dec) begin  
+    if (bcd0 < 9) begin
+      bcd0 = 0;
+      bcd1 = bcd1 + 1;
+    end
+    else   
+      if (bcd1 < 9) begin
+        bcd0 = 0;
+        bcd1 = bcd1 + 1;	
+      end
+      else begin
+        bcd0 = bcd0;
+        bcd1 = bcd1;	
+      end
+    end
+  end
+
+  if (dec && !inc) begin
+    if (bcd0 > 0) begin
+      bcd0 = bcd0 - 1;
+      bcd1 = bcd1;
+    end
+    else   
+      if (bcd1 > 0) begin
+        bcd0 = 9;
+        bcd1 = bcd1 - 1; 
+      end
+      else begin
+        bcd0 = bcd0;
+        bcd1 = bcd1;
+      end
+    end
+  end
+  */
+end: counter
 
 endmodule: bcd_counter_2digit
-
-			
 

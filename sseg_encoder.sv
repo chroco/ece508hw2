@@ -16,15 +16,15 @@
 
 module sseg_encoder
 #(
-	parameter				SEG_POLARITY = 1	// Set the bit value for lighting a segment
-												// SEG_POLARITY =1 says light the segment by
-												// driving a 1 to it.  SEG_POLARITY = 0 says
-												// light a segment by driving a 0 to it
-												// default value is 1 to light.
+	parameter	SEG_POLARITY = 1    // Set the bit value for lighting a segment
+                                // SEG_POLARITY =1 says light the segment by
+                                // driving a 1 to it.  SEG_POLARITY = 0 says
+                                // light a segment by driving a 0 to it
+                                // default value is 1 to light.
 )
 (
-	input logic		[3:0]	bcd_in,				// BCD input value
-	output logic	[6:0]	sseg_out			// 7-segment encoded value
+	input logic		[3:0]	bcd_in,		// BCD input value
+	output logic	[6:0]	sseg_out	// 7-segment encoded value
 );
 
 logic [3:0][6:0] bcdlut;
